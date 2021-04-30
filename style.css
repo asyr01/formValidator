@@ -9,4 +9,8 @@ body {
   min-height: 100vh;
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
