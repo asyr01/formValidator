@@ -15,7 +15,9 @@ function validateForm() {
     message.textContent = 'Please fill required fields.';
     message.style.color = 'red';
     messageContainer.style.borderColor = 'red';
+    return;
   }
+
   // Check to see if passwords match
   if (password1El.value === password2El.value) {
     passwordsMatch = true;
@@ -28,7 +30,9 @@ function validateForm() {
     messageContainer.style.borderColor = 'red';
     password2El.style.borderColor = 'red';
     password2El.style.borderColor = 'red';
+    return;
   }
+
   // If form inputs given and passwords match
   if (isValid && passwordsMatch) {
     message.textContent = 'Ready to Register!';
@@ -37,10 +41,26 @@ function validateForm() {
   }
 }
 
+function storeFormData() {
+  const user = {
+    name: form.name.value,
+    phone: form.phone.value,
+    email: form.email.value,
+    website: form.website.value,
+    password: form.password.value,
+  };
+  // Do something with user data
+  // Send it to the server after crypting password etc.
+}
+
 function processFormData(e) {
   e.preventDefault();
   // Validate the form
   validateForm();
+  // Submit data if valid
+  if (isValid && passwordsMatch) {
+    storeFormData();
+  }
 }
 
 // Event Listener
